@@ -56,6 +56,7 @@ def find(word, box, color):
 	box_copy = deepcopy(box)
 	for c in coords:
 		update_box(box_copy, c, color)
+
 	print(f'== FIND A WORD ==')
 	print(f'Find : "{word}"')
 	print(f'Found: {len(coords)}')
@@ -76,6 +77,35 @@ def update_box(box, xy, color):
 		y = y1 if y1 == y2 else y1+i if y2 > y1 else y1-i
 		letter = box[x][y]
 		box[x][y] = f'\033[4;{color};40m'+letter.upper()+'\033[0;37;40m'
+
+class Word():
+	pass
+
+
+class Search():
+	results = [
+		'word': {
+			'coords': [(x, y),  ..]
+			'grid': [],
+			'color': '',
+			'style': '',
+			'bg': '',
+		}
+	]
+	results = {}
+
+	def __init__(grid, words):
+		self.grid = grid
+		self.words = words
+
+	def __str__(self):
+		return self.grid
+
+	def find(self):
+		pass
+
+
+
 
 if __name__ == '__main__':
 	main()
